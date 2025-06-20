@@ -30,7 +30,7 @@ class MainController {
                 return "TLS 1.2 supported; no action required.";
             }
         }catch(Exception $e) {
-            return $e->getResponse();
+            return $e->getResponse()->getReasonPhrase();
         }
 
         return $body;
