@@ -2,15 +2,27 @@
 
 namespace Tests;
 
-use App\MainController;
+use App\Controller\MainController;
+use Mockery;
 use PHPUnit\Framework\TestCase;
 
 class MainControllerTest extends TestCase {
-    public function testIndex() {
-        $main = new MainController();
-        $result = $main->index();
-        $expectedResult = "Hello, World!";
+    
+    public function testIndex_success() {
 
-        $this->assertEquals($expectedResult, $result);
+        Mockery::mock('alias:App\View')
+            ->shouldReceive("render")
+            ->once()
+            ->with(
+                'MainView', 
+                [
+                    "result" => "Hello, World!"
+                ]
+                );
+
+        $main = new MainController();
+        $main->index();
+
+        $this->assertTrue(true);
     }
 }
