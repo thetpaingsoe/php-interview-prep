@@ -2,7 +2,7 @@
 
 ## 🛠️ Installation
 - Clone the project
-- Download packages using ( composer install ) 
+- Download packages using ( `composer install` ) 
 
 ## 🏁 Running Project
 - `php -S localhost:8000 -t public`
